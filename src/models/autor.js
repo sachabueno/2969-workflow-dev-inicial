@@ -26,6 +26,10 @@ class Autor {
     return resultado[0];
   }
 
+  static async pegarLivrosPorAutor(id) {
+    return db.select('*').from('livros').where({ autor_id: id });
+  }
+
   async criar() {
     const novoAutor = {
       nome: this.nome,
